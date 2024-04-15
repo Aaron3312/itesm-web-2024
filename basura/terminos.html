@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+
+.rdp-button {
+  border: 2px solid transparent;
+}
+
+.rdp-button[disabled] {
+  opacity: 0.25;
+}
+
+.rdp-button:not([disabled]) {
+  cursor: pointer;
+}
+
+.rdp-button:focus:not([disabled]),
+.rdp-button:active:not([disabled]) {
+  color: inherit;
+  border: var(--rdp-outline);
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-button:hover:not([disabled]) {
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-months {
+  display: flex;
+}
+
+.rdp-month {
+  margin: 0 1em;
+}
+
+.rdp-month:first-child {
+  margin-left: 0;
+}
+
+.rdp-month:last-child {
+  margin-right: 0;
+}
+
+.rdp-table {
+  margin: 0;
+  max-width: calc(var(--rdp-cell-size) * 7);
+  border-collapse: collapse;
+}
+
+.rdp-with_weeknumber .rdp-table {
+  max-width: calc(var(--rdp-cell-size) * 8);
+  border-collapse: collapse;
+}
+
+.rdp-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  text-align: left;
+}
+
+.rdp-multiple_months .rdp-caption {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.rdp-caption_dropdowns {
+  position: relative;
+  display: inline-flex;
+}
+
+.rdp-caption_label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.25em;
+  white-space: nowrap;
+  color: currentColor;
+  border: 0;
+  border: 2px solid transparent;
+  font-family: inherit;
+  font-size: 140%;
+  font-weight: bold;
+}
+
+.rdp-nav {
+  white-space: nowrap;
+}
+
+.rdp-multiple_months .rdp-caption_start .rdp-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.rdp-multiple_months .rdp-caption_end .rdp-nav {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.rdp-nav_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  padding: 0.25em;
+  border-radius: 100%;
+}
+
+/* ---------- */
+/* Dropdowns  */
+/* ---------- */
+
+.rdp-dropdown_year,
+.rdp-dropdown_month {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.rdp-dropdown {
+  appearance: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.rdp-dropdown[disabled] {
+  opacity: unset;
+  color: unset;
+}
+
+.rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
+.rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
+  border: var(--rdp-outline);
+  border-radius: 6px;
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-dropdown_icon {
+  margin: 0 0 0 5px;
+}
+
+.rdp-head {
+  border: 0;
+}
+
+.rdp-head_row,
+.rdp-row {
+  height: 100%;
+}
+
+.rdp-head_cell {
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-align: center;
+  height: 100%;
+  height: var(--rdp-cell-size);
+  padding: 0;
+}
+
+.rdp-tbody {
+  border: 0;
+}
+
+.rdp-tfoot {
+  margin: 0.5em;
+}
+
+.rdp-cell {
+  width: var(--rdp-cell-size);
+  height: 100%;
+  height: var(--rdp-cell-size);
+  padding: 0;
+  text-align: center;
+}
+
+.rdp-weeknumber {
+  font-size: 0.75em;
+}
+
+.rdp-weeknumber,
+.rdp-day {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--rdp-cell-size);
+  max-width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 100%;
+}
+
+.rdp-day_today:not(.rdp-day_outside) {
+  font-weight: bold;
+}
+
+.rdp-day_selected:not([disabled]),
+.rdp-day_selected:focus:not([disabled]),
+.rdp-day_selected:active:not([disabled]),
+.rdp-day_selected:hover:not([disabled]) {
+  color: white;
+  background-color: var(--rdp-accent-color);
+}
+
+.rdp-day_selected:focus:not([disabled]) {
+  border: var(--rdp-outline-selected);
+}
+
+.rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir='rtl'] .rdp-day_range_start:not(.rdp-day_range_end) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir='rtl'] .rdp-day_range_end:not(.rdp-day_range_start) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rdp-day_range_end.rdp-day_range_start {
+  border-radius: 100%;
+}
+
+.rdp-day_range_middle {
+  border-radius: 0;
+}
+</style></head><body>
+<b>1.</b> Esta red es un servicio de cortes�a exclusivamente para visitantes que se encuentren participando en alguna actividad dentro de las instalaciones del Tecnol�gico de Monterrey. Queda prohibido su uso para cualquier otro fin.
+<br><br>
+<b>2.</b> El visitante se compromete a hacer uso adecuado de las instalaciones y la infraestructura que el Tecnol�gico de Monterrey provee.
+<br><br>
+<b>3.</b> El visitante acepta usar el servicio en las condiciones tal cual se provee.
+<br><br>
+<b>4.</b> Es responsabilidad del visitante cuidar su dispositivo, manteniendo actualizado su sistema operativo, as� como actualizadas y activas sus herramientas de seguridad (antivirus, firewall, etc.).
+<br><br>
+<b>5.</b> Es responsabilidad del visitante cuidar su informaci�n confidencial, identidad y credenciales de acceso. Este servicio NO provee ning�n mecanismo de protecci�n que garantice la integridad o privacidad de las comunicaciones.
+<br><br>
+<b>6.</b> El Tecnol�gico de Monterrey declina cualquier responsabilidad que de todo ello pudiera derivarse con toda la extensi�n que permita el ordenamiento jur�dico.
+<br><br>
+<b>7.</b> El visitante est� consiente de los riesgos de conectarse mediante este servicio y libera de cualquier responsabilidad al Tecnol�gico de Monterrey y a sus colaboradores por cualquier afectaci�n o da�o causado en su informaci�n, su software o su hardware.
+<br><br>
+<b>8.</b> Este servicio est� limitado y restringido, por lo que su utilizaci�n es monitoreado.
+<br><br>
+<b>9.</b> Est� prohibido saturar o acaparar los recursos de este u otros servicios que el Tecnol�gico de Monterrey pone a su disposici�n.
+<br><br>
+<b>10.</b> Est� prohibido realizar cualquier actividad que degrade o interrumpa este u otros servicios.
+<br><br>
+<b>11.</b> Est� prohibido utilizar este servicio para realizar cualquier actividad ilegal o que no cumpla con el c�digo de �tica del Tecnol�gico de Monterrey.
+<br><br>
+<b>12.</b> El visitante acepta y reconoce que est� prohibido el uso de licencias ap�crifas en la red Wifi del Tecnol�gico de Monterrey, asimismo se compromete a sacar en paz y a salvo al Tecnol�gico de Monterrey.
+<br><br>
+<b>13.</b> De manera enunciativa mas no limitativa, queda prohibido intercambiar contenidos que incluyan material que infrinja derechos de autor no debidamente autorizados, o que infrinja cualquier otro derecho de Propiedad Industrial, material ofensivo para la comunidad y la moral p�blica, terrorismo, racismo, u otras conductas ilegales, material pornogr�fico, especialmente el que atente contra menores, materiales amenazadores, difamatorios o que inciten a la violencia contenidos ilegales o il�citos de cualquier naturaleza. Asimismo, el usuario se compromete a no acceder ilegalmente o sin autorizaci�n a sistemas, o redes que pertenezcan a otra persona, o a tratar de superar medidas de seguridad del sistema de otra persona ("hacking"), cualquier actividad que pueda ser usada como causante de un ataque a un sistema, distribuci�n de virus, troyanos a trav�s de Internet, o cualquier otra actividad destructiva mailbombing, spamming, y/o cualquier otra forma que sea contraria, menosprecie o atente contra los C�digos y Pol�ticas del Tecnol�gico de Monterrey, legislaci�n nacional y Tratados Internacionales.
+<br><br>
+<b>14.</b> Los menores de edad, para acceder y usar este servicio, necesitan obligatoriamente autorizaci�n de sus padres y/o representantes legales. Se recuerda a los padres y/o representantes legales de los menores que es de su exclusiva y �nica responsabilidad el controlar y decidir los contenidos o servicios adecuados para los menores a su cargo, por lo que el Tecnol�gico de Monterrey no se hace responsable del uso y navegaci�n de los menores en el servicio.
+<br><br>
+<b>15.</b> El Tecnol�gico de Monterrey se reserva el derecho de cancelar el servicio en cualquier momento y sin previo aviso.
+<br><br>
+<b>16.</b> Cualquier uso indebido de este servicio ser� sancionado y turnado a las autoridades correspondientes.
+<br><br>
+<b>17.</b> El desconocimiento de estas politicas no exime a las sanciones correspondientes en caso de violaci�n de las mismas.
+<br><br>
+<b>18.</b> Cualquier situacion no estipulada en estas pol�ticas ser� revisada por la Direcci�n de Tecnolog�as de la Informaci�n del Tecnol�gico de Monterrey.
+<br><br>
+<b>19.</b> Las presentes politicas entran en vigor a partir de su publicaci�n y pueden cambiar sin previo aviso, por lo que le recomendamos siempre consultarlas antes de accesar a nuestro servicio.
+<br><br>
+He leido y entendido estas politicas y condiciones de uso y declaro conocer las pol�ticas, c�digos y normas establecidas por el Tecnol�gico de Monterrey. Estoy de acuerdo en cumplir las directrices anteriores y entender que el incumplimiento de �stas, pueden resultar el bloqueo de mi acceso al servicio y asumir las sanciones legales correspondientes.
+
+</body></html>
