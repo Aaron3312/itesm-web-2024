@@ -1,5 +1,4 @@
-
-apps/itesm-web-2024/node_modules/
+apps/itesm-web-2024/
 openai/node_modules/
 node_modules/
 .env
