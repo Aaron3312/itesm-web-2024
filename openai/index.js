@@ -15,6 +15,7 @@ let response = "";
 /*app.get('/api/test', (req, res) => {
     res.json({ gretting: `Hello, ${main()}!` });
 });*/
+
 app.get("/api/test", async (req, res) => {
 	try {
 		const response = await main(response1); // Call main() and wait for the Promise to resolve
@@ -29,7 +30,7 @@ app.get("/api/test", async (req, res) => {
 app.post("/api/CustomGreeting", async (req, res) => {
 	const name = req.body.name;
 	const response1 = await main(name);
-	res.json({ greeting: `Hello, ${response1}!` });
+	res.json({response1});
 });
 
 app.listen(port, () => {
@@ -43,17 +44,19 @@ const openai = new OpenAI({
 });
 
 async function main(response1) {
+    
     let userResponse = response1;
 	let messages = await readMessages(); // Leer mensajes del archivo JSON
-	messages.push({ role: "user", content: response1 }); // Agregar la nueva pregunta del usuario
+	messages.push({ role: "user", content: userResponse }); // Agregar la nueva pregunta del usuario
+    const completion = await openai.chat.completions.create({
+		model: "gpt-3.5-turbo",
+		messages: messages,
+	});
+
     messages.push({role: 'assistant', content: completion.choices[0].message.content}); // Agregar la respuesta del asistente
     await writeMessages(messages);  // Guardar los mensajes actualizados en el archivo JSON
 
 
-	const completion = await openai.chat.completions.create({
-		model: "gpt-3.5-turbo",
-		messages: messages,
-	});
 
 	console.log(completion.choices[0].message);
 	return completion.choices[0].message.content;
