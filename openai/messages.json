@@ -10,29 +10,5 @@
   {
     "role": "assistant",
     "content": "Un taco es un platillo mexicano que consiste en una tortilla de maíz o de harina que se dobla sobre sí misma para contener algún alimento dentro de ella. Los ingredientes más comunes son carne, cebolla, cilantro, salsa y limón. Los tacos son muy populares en México y en otros países de América Latina. ¿Te gustaría saber algo más sobre los tacos?"
-  },
-  {
-    "role": "user",
-    "content": "quien es el mejor taquero"
-  },
-  {
-    "role": "assistant",
-    "content": "No hay una respuesta definitiva a quién es el mejor taquero, ya que la calidad de los tacos puede variar según la región, el establecimiento y los gustos personales de cada persona. En México, un país muy conocido por sus tacos, existen numerosos taqueros famosos y reconocidos por la calidad y sabor de sus tacos, como El Parnita en la Ciudad de México o Tacos Lady en Tijuana. Sin embargo, la mejor manera de encontrar al mejor taquero es explorando y probando diferentes lugares para descubrir cuál es tu favorito. ¡La diversidad de sabores en el mundo de los tacos es infinita!"
-  },
-  {
-    "role": "user",
-    "content": "dame el top 5 de los que mencionaste anteriormente"
-  },
-  {
-    "role": "assistant",
-    "content": "Claro, aquí tienes una lista con algunos de los taqueros más famosos y recomendados en México:\n\n1. El Parnita - Ciudad de México: Conocido por sus tacos estilo callejero y su ambiente relajado y acogedor.\n   \n2. Tacos Lady - Tijuana: Un icónico puesto de tacos al pastor en la frontera norte de México, famoso por su sabor auténtico y su atención excepcional.\n\n3. El Huequito - Ciudad de México: Destacado por sus tacos de suadero y sus salsas caseras, una parada obligada para los amantes de los tacos en la capital mexicana.\n\n4. Taquería El Borrego Viudo - Ciudad de México: Reconocido por sus tacos de birria y su ambiente animado, es un lugar muy popular entre locales y turistas.\n\n5. Taquería El Califa - Ciudad de México: Una taquería clásica que ofrece una variedad de tacos, desde al pastor hasta de bistec, con un sabor inigualable y una experiencia gastronómica auténtica.\n   \nEstos son solo algunos ejemplos de taqueros destacados en México, ¡te recomendaría probarlos todos si tienes la oportunidad! ¿Hay algo más en lo que te pueda ayudar?"
-  },
-  {
-    "role": "user",
-    "content": "quien es el parnita"
-  },
-  {
-    "role": "assistant",
-    "content": "El Parnita es un restaurante ubicado en la Ciudad de México que se ha destacado por ofrecer una experiencia gastronómica única con un enfoque en la comida callejera mexicana. Su propuesta se centra en platillos tradicionales como tacos, tlayudas, tostadas y más, con un toque moderno y creativo. El Parnita se caracteriza por su ambiente relajado y acogedor, ideal para disfrutar de una comida informal y saborear auténticos sabores mexicanos. Es un lugar muy popular entre locales y turistas que buscan probar una variedad de platillos típicos de la gastronomía mexicana en un ambiente festivo y amigable. ¿Hay algo más que te gustaría saber sobre El Parnita o sobre algún otro tema relacionado? ¡Estoy aquí para ayudarte!"
   }
 ]

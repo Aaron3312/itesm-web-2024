@@ -30,7 +30,7 @@ app.get("/api/test", async (req, res) => {
 app.post("/api/CustomGreeting", async (req, res) => {
 	const name = req.body.name;
 	const response1 = await main(name);
-	res.json({response1});
+	res.json(response1);
 });
 
 app.listen(port, () => {
