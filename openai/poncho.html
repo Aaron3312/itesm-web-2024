@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Asistente Taquero Pro</title>
+	</head>
+	<body>
+		<h1>Pregunta lo que gustes sobre taqueros o tacos</h1>
+		<form id="greetingForm">
+			<label for="name">Ingresa tu pregunta:</label>
+			<input type="text" id="name" name="name" required />
+			<button type="submit">Enviar</button>
+			<button style="color: brown" type="reset" id = "myButton">Reset Conversation</button>
+		</form>
+
+		<div id="responseArea">Esperando respuesta...</div>
+		<div id="Response"></div>
+
+		<script>
+			document.getElementById("greetingForm").onsubmit = async function (
+				event
+			) {
+				event.preventDefault(); // Previene el envío tradicional del formulario
+				const name = document.getElementById("name").value;
+				const response = await fetch(
+					"http://34.16.150.55:443/api/CustomGreeting",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({ name: name }),
+					}
+				);
+				const data = await response.json();
+				localStorage.setItem("lastGreeting", `Saludo: ${data.message.content}`); // Guardar en localStorage
+				displayGreeting();
+				// No limpiar o alterar 'responseArea' después de establecer el texto
+			};
+
+			document.addEventListener("DOMContentLoaded", function () {
+				const button = document.getElementById("myButton");
+				button.addEventListener("click", async function () {
+					try {
+						const response = await fetch("http://34.16.150.55:443/reset", {
+							method: "GET",
+						});
+
+						if (response.ok) {
+							console.log("Reset request was successful");
+							const data = await response.json(); // Assuming the server sends back JSON
+							console.log("Server response:", data);
+						} else {
+							console.error("Failed to reset. Status:", response.status);
+						}
+					} catch (error) {
+						console.error("Error making reset request:", error);
+					}
+				});
+			});
+
+			function displayGreeting() {
+				const lastGreeting = localStorage.getItem("lastGreeting");
+				if (lastGreeting) {
+					document.getElementById("responseArea").textContent = lastGreeting;
+				}
+			}
+
+			// Llamar a displayGreeting al cargar la página para mostrar el último saludo guardado
+			window.onload = function () {
+				displayGreeting();
+			};
+		</script>
+	</body>
+</html>
