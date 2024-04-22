@@ -1,6 +1,4 @@
-[submodule "apps/itesm-web-2024"]
-    path = apps/itesm-web-2024
-    url = https://github.com/someuser/some-repository.git
+
 openai/node_modules
 node_modules/
 .env
