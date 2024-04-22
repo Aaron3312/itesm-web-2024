@@ -9,6 +9,7 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+let response = '';
 
 
 /*app.get('/api/test', (req, res) => {
@@ -16,7 +17,7 @@ app.use(bodyParser.json());
 });*/
 app.get('/api/test', async (req, res) => {
     try {
-        const response = await main();  // Call main() and wait for the Promise to resolve
+        const response = await main(response1);  // Call main() and wait for the Promise to resolve
         console.log(response);          // Log the response from OpenAI
         res.json({ greeting: `Hello, ${response}!` });  // Send the response as part of the JSON
     } catch (error) {
@@ -25,11 +26,12 @@ app.get('/api/test', async (req, res) => {
     }
 });
 
-app.post('/api/CustomGreeting', (req, res) => {
+app.post('/api/CustomGreeting', async(req, res) => {
     const name = req.body.name;
-    res.json({ greeting: `Hello, ${main()}!` });
+    const response1 = await main(name);
+    res.json({ greeting: `Hello, ${response1}!` });
+    
 });
-
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
@@ -42,14 +44,17 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
-async function main() {
 let messages = [
-    {role: 'system', content: 'you are an excellent professor of web development'},
-    {role: 'user', content: 'what is an API?'},
-    {role: 'assistant', content: 'An API is a set of rules and protocols that allows one software application to communicate with another. It defines the methods for requesting and sending data between different software applications.'}
+    {role: 'system', content: 'eres un asistente que puede responder preguntas sobbre taqueros y tacos'},
+    {role: 'user', content: 'que es un taco'},
+    {role: 'assistant', content: 'Un taco es un platillo mexicano que consiste en una tortilla de maíz o de harina que se dobla sobre sí misma para contener algún alimento dentro de ella. Los ingredientes más comunes son carne, cebolla, cilantro, salsa y limón. Los tacos son muy populares en México y en otros países de América Latina. ¿Te gustaría saber algo más sobre los tacos?'}
 ];
 
-let userResponse = 'what is an API again?';
+
+async function main(response1) {
+
+
+let userResponse = response1;
 
 messages.push({role: 'user', content: userResponse});
 
