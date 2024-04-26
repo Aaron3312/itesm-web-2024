@@ -45,7 +45,7 @@
 			  <div class="h-100 p-5 text-bg-dark rounded-3">
 				<h2>Response From The Taquero Bot</h2>
 				<p id="responseArea" style="font-size: 20px;">Start to ask someting!</p>
-				<button class="btn btn-outline-light" id="endeds"  type="button">finish</button>
+				<button class="btn btn-outline-light" id="endeds"  type="button">Finish</button>
 			  </div>
 
 		<div id="Response" class=""></div>
@@ -79,7 +79,10 @@
 
 			document.addEventListener("DOMContentLoaded", function () {
 				const button = document.getElementById("myButton");
+				const button1 = document.getElementById("endeds")
 				button.addEventListener("click", async function () {
+					button1.textContent = 'Deleting...'; // Cambiar texto del botón a "Loading..."
+    				button1.disabled = true; // Deshabilitar botón durante la carga
 					try {
 						const response = await fetch("http://34.16.150.55:443/reset", {
 							method: "GET",
@@ -89,13 +92,18 @@
 							console.log("Reset request was successful");
 							const data = await response.json(); // Assuming the server sends back JSON
 							console.log("Server response:", data);
+							button1.textContent = 'Finish'; // Restaurar texto del botón a "Finish"
+							button1.disabled = false; // Habilitar botón después de la carga
 						} else {
 							console.error("Failed to reset. Status:", response.status);
+							button1.textContent = 'Failed'; // Restaurar texto del botón a "Finish"	
 						}
 					} catch (error) {
 						console.error("Error making reset request:", error);
+						button1.textContent = 'Failed'; // Restaurar texto del botón a "Finish"
 					}
 				});
+
 			});
 
 			function displayGreeting() {
