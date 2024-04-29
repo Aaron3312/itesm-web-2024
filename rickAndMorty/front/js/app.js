@@ -24,9 +24,16 @@ function renderCharacter(character){
     const img = document.createElement("img");
     img.className = "card-img-top";
     img.src = character.image;
-
+    const cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+    cardBody.innerHTML = `
+        <h5 class="card-title">${character.name}</h5>
+        <p class="card-text">Status: ${character.status}</p>
+        <p class="card-text">Species: ${character.species}</p>`;
+    card.appendChild(cardBody);
 
     card.appendChild(img);
+
 
     // TODO Get all info
 
