@@ -1,0 +1,24 @@
+const http = require('http');
+const fs = require('fs'); // Importa el módulo File System
+
+
+const hostname = '0.0.0.0'; // Escucha en todas las interfaces de red
+const port = 443;
+
+const server = http.createServer((req, res) => {
+  fs.readFile('index.html', (err, data) => {
+    if (err) {
+      res.statusCode = 500;
+      res.setHeader('Content-Type', 'text/plain');
+      res.end('Error loading the file');
+    } else {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'text/html');
+      res.end(data);
+    }
+  });
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
