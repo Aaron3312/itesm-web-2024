@@ -2,6 +2,25 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 
+const OpenAI = require("openai");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const port = 443;
+const fs = require("fs/promises"); // Import fs/promises para manejar archivos de forma asíncrona
+
+//manejo de cors y bodyparser para el manejo de datos
+app.use(cors());
+app.use(bodyParser.json());
+
+
+//manejo de la respuesta del asistente
+let response = "";
+
+
+
+
+
+//funcion pre definida notion
 const { Client } = require("@notionhq/client")
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
