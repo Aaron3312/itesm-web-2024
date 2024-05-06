@@ -1,0 +1,113 @@
+/* this file is loaded by index.html and styles the page */
+
+* {
+  box-sizing: border-box;
+}
+html{
+  background-color: #fefaf2;
+  font-family: "Sedan SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Titles1s{
+  display: flex;
+  font-size: 6rem;
+  color: #a48249;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -2rem;
+}
+
+.sedan-sc-regular {
+  font-family: "Sedan SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+#dedlogo{
+  width: 200px;
+  height: 200px;
+}
+
+.main1{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  color: #a48249;
+  font-family: "Sedan SC", serif;
+  font-weight: 400;
+  font-style: normal;  margin: 2em 1em;
+  line-height: 1.5em;
+}
+
+h1 {
+  color: #7171d1;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  width: 50%;
+  word-break: break-all;
+}
+
+form {
+  background-color: #e3cdaa;
+  display: grid;
+  grid-gap: 1em;
+  padding: 1em;
+
+}
+
+input {
+  border: 1px solid silver;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+form input[type="submit"] {
+  background-color: #ffed84;
+  border: 2px solid currentColor;
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1.4em;
+  padding: 0.25em 1em;
+  max-width: 20ch;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+form input[type="submit"]:hover {
+  background-color: #9292d3;
+}
+
+form input[type="submit"]:active {
+  background-color: #b2b2d5;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid lightgrey;
+}
