@@ -1,8 +1,9 @@
 require("dotenv").config()
 const express = require("express")
 const app = express()
-
 const OpenAI = require("openai");
+
+
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const port = 443;
@@ -12,9 +13,15 @@ const fs = require("fs/promises"); // Import fs/promises para manejar archivos d
 app.use(cors());
 app.use(bodyParser.json());
 
+const openai = new OpenAI({
+	apiKey: process.env.OPENAI_API_KEY,
+});
 
 //manejo de la respuesta del asistente
 let response = "";
+
+
+
 
 
 
@@ -25,7 +32,7 @@ const { Client } = require("@notionhq/client")
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static("public"))
+app.use(express.static("public")) //para que se pueda acceder a los archivos de la carpeta public
 app.use(express.json()) // for parsing application/json
 
 // http://expressjs.com/en/starter/basic-routing.html
@@ -33,8 +40,48 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + "/views/index.html")
 })
 
+
+//OpenAI API
+app.post("/databases", async (req, res) => {
+	const name = req.body.name;
+	const response1 = await main(name);
+	res.json(response1);
+});
+
+async function main(response1) {
+	let userResponse = response1;
+	let messages = await readMessages(); // Leer mensajes del archivo JSON
+	messages.push({ role: "user", content: userResponse }); // Agregar la nueva pregunta del usuario
+	const completion = await openai.chat.completions.create({
+		model: "gpt-3.5-turbo",
+		messages: messages,
+	});
+
+	messages.push({
+		role: "assistant",
+		content: completion.choices[0].message.content,
+	}); // Agregar la respuesta del asistente
+	//await writeMessages(messages); // Guardar los mensajes actualizados en el archivo JSON
+
+	console.log(completion.choices[0].message);
+	return completion.choices[0];
+}
+
+async function readMessages() {
+	const data = await fs.readFile("messages.json", "utf8");
+	return JSON.parse(data);
+}
+
+async function writeMessages(messages) {
+	await fs.writeFile(
+		"messages.json",
+		JSON.stringify(messages, null, 2),
+		"utf8"
+	);
+}
+
 // Create new database. The page ID is set in the environment variables.
-app.post("/databases", async function (request, response) {
+app.post("/dat", async function (request, response) {
   const pageId = process.env.NOTION_PAGE_ID
   const title = request.body.dbName
 
@@ -170,6 +217,6 @@ app.post("/comments", async function (request, response) {
 })
 
 // listen for requests :)
-const listener = app.listen(process.env.PORT, function () {
+const listener = app.listen(8080, function () {
   console.log("Your app is listening on port " + listener.address().port)
 })

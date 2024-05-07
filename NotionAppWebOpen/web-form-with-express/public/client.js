@@ -71,10 +71,26 @@ const appendBlocksResponse = function (apiResponse, el) {
  */
 
 // Attach submit event to each form
-dbForm.onsubmit = async function (event) { //this is the function that will be called when the form is submitted
-  event.preventDefault()
+// dbForm.onsubmit = async function (event) { //this is the function that will be called when the form is submitted
+//   event.preventDefault()
 
-  const dbName = event.target.dbName.value
+//   const dbName = event.target.dbName.value
+//   const body = JSON.stringify({ dbName })
+
+//   const newDBResponse = await fetch("/databases", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body,
+//   })
+//   const newDBData = await newDBResponse.json()
+
+//   appendApiResponse(newDBData, dbResponseEl)
+// }
+dbForm.onsubmit = async function (event) {
+  event.preventDefault()
+  const name = event.target.dbName.value
   const body = JSON.stringify({ dbName })
 
   const newDBResponse = await fetch("/databases", {
@@ -82,12 +98,14 @@ dbForm.onsubmit = async function (event) { //this is the function that will be c
     headers: {
       "Content-Type": "application/json",
     },
-    body,
+    body: JSON.stringify({ name: name })
   })
   const newDBData = await newDBResponse.json()
 
   appendApiResponse(newDBData, dbResponseEl)
 }
+
+
 
 pageForm.onsubmit = async function (event) {
   event.preventDefault()

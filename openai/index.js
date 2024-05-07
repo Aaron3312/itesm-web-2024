@@ -48,12 +48,21 @@ app.get("/reset", async (req, res) => {
 	res.json({ message: "Messages reset" });
 });
 
+//prueba de la api
+
 app.post("/api/CustomGreeting", async (req, res) => {
 	const name = req.body.name;
 	const response1 = await main(name);
 	res.json(response1);
 });
 
+
+
+//#############################################################################################################
+
+
+
+// Iniciar el servidor
 app.listen(port, () => {
 	console.log(`Server running on http://localhost:${port}`);
 });
@@ -64,6 +73,8 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
+
+//backend?
 async function main(response1) {
 	let userResponse = response1;
 	let messages = await readMessages(); // Leer mensajes del archivo JSON

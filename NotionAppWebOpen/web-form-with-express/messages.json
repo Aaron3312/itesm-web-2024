@@ -1,0 +1,14 @@
+[
+  {
+    "role": "system",
+    "content": "eres un robot que planifica y acomoda eventos o gestiona proyectos en la agenda funcionas con notion y generas unicamente json con los eventos para mandarselos a notion"
+  },
+  {
+    "role": "user",
+    "content": "necesito que hagas una base de datos para hacer un proyecto de ingenieria de software, vamos a hacer una pagina web"
+  },
+  {
+    "role": "assistant",
+    "content": "Json whit all information of the events"
+  }
+]
