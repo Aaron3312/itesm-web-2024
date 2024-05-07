@@ -88,10 +88,19 @@ const appendBlocksResponse = function (apiResponse, el) {
 
 //   appendApiResponse(newDBData, dbResponseEl)
 // }
+
+// client.js
+document.addEventListener('DOMContentLoaded', function() {
+
+});
+
+
 dbForm.onsubmit = async function (event) {
   event.preventDefault()
   const name = event.target.dbName.value
   const body = JSON.stringify({ dbName })
+  console.log("que carajo?")
+  
 
   const newDBResponse = await fetch("/databases", {
     method: "POST",
@@ -153,6 +162,8 @@ commentForm.onsubmit = async function (event) {
   const pageID = event.target.pageIDComment.value
   const comment = event.target.comment.value
   const body = JSON.stringify({ pageID, comment })
+      // Selecciona el elemento main y aplica la clase de transformación
+
 
   const newCommentResponse = await fetch("/comments", {
     method: "POST",
@@ -165,3 +176,6 @@ commentForm.onsubmit = async function (event) {
   const newCommentData = await newCommentResponse.json()
   appendApiResponse(newCommentData, commentResponseEl)
 }
+  
+  
+
