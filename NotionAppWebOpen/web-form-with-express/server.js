@@ -86,7 +86,7 @@ app.post("/databases", async function (req, res) {
   let messages = [
     {
       "role": "system",
-      "content": "eres un robot que planifica y acomoda eventos o gestiona proyectos en la agenda el dia de hoy es " + time1 + " maximo pon tareas hasta dentro de 1 semana!!! y lo que se te solicite el contexto es para el siguiente proyecto: " + name
+      "content": "eres un asistente que planifica y acomoda eventos o gestiona proyectos en la agenda el dia de hoy es " + time1 + " haz todo para que dure 1 semana a no ser que se te indique lo contrario y da lo que se te solicite sobre el contexto para el siguiente proyecto: " + name + "lo que no sepas imaginalo o generalo!"
     }
   ];
   await writeMessages(messages);
@@ -107,7 +107,7 @@ app.post("/databases", async function (req, res) {
   NumberOfTasks = await DBsd((readMessages()), promptNumberOfTasks);
   var promptsPages = "Genera y dime unica y exclusivamente el nombre de la primera tarea sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la primer tarea para llevar a cabo ese proyecto y el numero 1!";
   response2 = await DBsd((readMessages()), promptsPages);
-  response_T1 = await DBsd((readMessages()), "Genera y dime los pasos a seguir para hacer la primer tarea del proyecto! "); 
+  response_T1 = await DBsd((readMessages()), "Genera o imagina o investiga, pero hazlo! y dime los pasos a seguir para hacer la primer tarea del proyecto: " + name + "!"); 
   response_dueDate = await DBsd((readMessages()), "Genera y dime la fecha de vencimiento de la tarea numero 1 del proyecto en formato AAAA-MM-DD!");
   var page1 = pageGenerator(response2, database_id, response_T1, response_dueDate);
 
@@ -117,7 +117,7 @@ app.post("/databases", async function (req, res) {
   for (let i = 2; i <= NumberOfTasks; i++) {
     var promptsPages = "Genera y dime unica y exclusivamente el nombre de la tarea numero " + i + " sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la tarea para llevar a cabo ese proyecto y sin verbos como realizar o hacer!";
     response2 = await DBsd((readMessages()), promptsPages);
-    response_T1 = await DBsd((readMessages()), "Genera y dime los pasos a seguir para hacer la tarea numero " + i + " del proyecto!"); 
+    response_T1 = await DBsd((readMessages()), "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero " + i + " del proyecto: " + name + "!" ); 
     response_dueDate = await DBsd((readMessages()), "Genera y dime la fecha de vencimiento de la tarea numero " + i + " del proyecto en formato AAAA-MM-DD!");
     var page1 = pageGenerator(response2, database_id, response_T1, response_dueDate);
   }
@@ -125,10 +125,40 @@ app.post("/databases", async function (req, res) {
   database_id_whitout_dash = database_id.replace(/-/g, "");
   console.log("https://www.notion.so/" + database_id_whitout_dash);
 
+  sortedRows1 = await sortedRows(database_id);
+
+  sorts = await sorts1(database_id);
 
   res.json(responseFromDB);
 
 });
+
+const sortedRows = async (database_id) => {
+	const response = await notion.databases.query({
+	  database_id: database_id,
+	  sorts: [
+	    {
+	      property: "Name",
+	      direction: "ascending"
+		  }
+	  ],
+	});
+  return response;
+}
+
+async function sorts1(database_id1) {
+  const response = await notion.databases.query({
+	  database_id: database_id1,
+	  sorts: [
+	    {
+	      property: "DueDate",
+	      direction: "ascending"
+		  }
+	  ],
+	});
+  console.log(response);
+  return response;
+}
 
 
 //funcion para generar la base de datos
