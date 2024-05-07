@@ -14,9 +14,17 @@ html{
 
 
 /* Clase para aplicar cuando se presiona submit */
-.transform-up-left {
-  transform: translate(-50%, -50%) scale(0.5);
+/* style.css */
+.upperPart {
+  transition: transform 0.5s ease-in-out;
+
 }
+
+.upperPart.minimize {
+  transform: translate(-50%, -50%) scale(0.5);
+  
+}
+
 
 
 
@@ -46,7 +54,6 @@ html{
 }
 
 .main1{
-  transition: transform 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;

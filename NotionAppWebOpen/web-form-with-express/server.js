@@ -111,6 +111,9 @@ app.post("/databases", async function (req, res) {
   response_dueDate = await DBsd((readMessages()), "Genera y dime la fecha de vencimiento de la tarea numero 1 del proyecto en formato AAAA-MM-DD!");
   var page1 = pageGenerator(response2, database_id, response_T1, response_dueDate);
 
+
+
+  //for (let i = 2; i <= NumberOfTasks; i++) {
   for (let i = 2; i <= NumberOfTasks; i++) {
     var promptsPages = "Genera y dime unica y exclusivamente el nombre de la tarea numero " + i + " sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la tarea para llevar a cabo ese proyecto y sin verbos como realizar o hacer!";
     response2 = await DBsd((readMessages()), promptsPages);
@@ -118,11 +121,9 @@ app.post("/databases", async function (req, res) {
     response_dueDate = await DBsd((readMessages()), "Genera y dime la fecha de vencimiento de la tarea numero " + i + " del proyecto en formato AAAA-MM-DD!");
     var page1 = pageGenerator(response2, database_id, response_T1, response_dueDate);
   }
-  
-
-
-  
-
+  console.log("fin de la creacion de la base de datos y las paginas de las tareas");
+  database_id_whitout_dash = database_id.replace(/-/g, "");
+  console.log("https://www.notion.so/" + database_id_whitout_dash);
 
 
   res.json(responseFromDB);
@@ -348,7 +349,7 @@ app.post("/comments", async function (request, response) {
 });
 
 // listen for requests :)
-const listener = app.listen(8080, function () {
+const listener = app.listen(port, function () {
 	console.log("Your app is listening on port " + listener.address().port);
 });
 
