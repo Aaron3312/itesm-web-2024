@@ -10,6 +10,18 @@ html{
   font-style: normal;
 }
 
+/* Estilo inicial del contenido principal */
+
+
+/* Clase para aplicar cuando se presiona submit */
+.transform-up-left {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+
+
+
+
 .Titles1s{
   display: flex;
   font-size: 6rem;
@@ -34,7 +46,7 @@ html{
 }
 
 .main1{
-  
+  transition: transform 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
