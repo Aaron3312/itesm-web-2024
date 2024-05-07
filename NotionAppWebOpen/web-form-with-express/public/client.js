@@ -43,12 +43,22 @@ const appendApiResponse = function (apiResponse, el) {
   el.appendChild(newParagraphId)
 
   // Add URL of Notion item (db, page) to UI
+  // if (apiResponse.data.url) {
+  //   const newAnchorTag = document.createElement("a")
+  //   newAnchorTag.setAttribute("href", apiResponse.data.url)
+  //   newAnchorTag.innerText = apiResponse.data.url
+  //   el.appendChild(newAnchorTag)
+  // }
   if (apiResponse.data.url) {
     const newAnchorTag = document.createElement("a")
-    newAnchorTag.setAttribute("href", apiResponse.data.url)
-    newAnchorTag.innerText = apiResponse.data.url
+    idurlOfNotionItem = apiResponse.data.id.replace(/-/g, "");
+    urlofNotionItem = "http://aaronproject1.notion.site/" + idurlOfNotionItem;
+    newAnchorTag.setAttribute("href", urlofNotionItem )
+    newAnchorTag.innerText = urlofNotionItem;
     el.appendChild(newAnchorTag)
+
   }
+
 }
 
 // Appends the blocks API response to the UI
@@ -100,6 +110,11 @@ dbForm.onsubmit = async function (event) {
   const name = event.target.dbName.value
   const body = JSON.stringify({ dbName })
   console.log("que carajo?")
+  const newAnchorTag1 = document.createElement("a")
+  newAnchorTag1.setAttribute("href", "http://aaronproject1.notion.site/" )
+  newAnchorTag1.innerText = "CARGANDO!!!!";
+  dbResponseEl.appendChild(newAnchorTag1)
+
   
 
   const newDBResponse = await fetch("/databases", {
@@ -112,6 +127,7 @@ dbForm.onsubmit = async function (event) {
   const newDBData = await newDBResponse.json()
 
   appendApiResponse(newDBData, dbResponseEl)
+  dbResponseEl.removeChild(newAnchorTag1)
 }
 
 
@@ -124,6 +140,7 @@ pageForm.onsubmit = async function (event) {
   const header = event.target.header.value
   const body = JSON.stringify({ dbID, pageName, header })
 //  const dueDate = event.target.dueDate.value
+
 
   const newPageResponse = await fetch("/pages", {
     method: "POST",
@@ -176,6 +193,6 @@ commentForm.onsubmit = async function (event) {
   const newCommentData = await newCommentResponse.json()
   appendApiResponse(newCommentData, commentResponseEl)
 }
-  
-  
 
+
+  
