@@ -32,54 +32,58 @@ app.get("/", function (request, response) {
 });
 
 //OpenAI API
-app.post("/databases", async (req, res) => {
+app.post("/fd", async (req, res) => {
 	const name = req.body.name;
 	const response1 = await main(name);
 	res.json(response1);
 });
 
-async function main(response1) {
-	let userResponse = response1;
-	let messages = await readMessages(); // Leer mensajes del archivo JSON
-	messages.push({ role: "user", content: userResponse }); // Agregar la nueva pregunta del usuario
-	const completion = await openai.chat.completions.create({
-		model: "gpt-3.5-turbo",
-		messages: messages,
-	});
+// async function main(response1) {
+// 	let userResponse = response1;
+// 	let messages = await readMessages(); // Leer mensajes del archivo JSON
+// 	messages.push({ role: "user", content: userResponse }); // Agregar la nueva pregunta del usuario
+// 	const completion = await openai.chat.completions.create({
+// 		model: "gpt-3.5-turbo",
+// 		messages: messages,
+// 	});
 
-	messages.push({
-		role: "assistant",
-		content: completion.choices[0].message.content,
-	}); // Agregar la respuesta del asistente
-	//await writeMessages(messages); // Guardar los mensajes actualizados en el archivo JSON
+// 	messages.push({
+// 		role: "assistant",
+// 		content: completion.choices[0].message.content,
+// 	}); // Agregar la respuesta del asistente
+// 	//await writeMessages(messages); // Guardar los mensajes actualizados en el archivo JSON
 
-	console.log(completion.choices[0].message);
-	return completion.choices[0];
-}
+// 	console.log(completion.choices[0].message);
+// 	return completion.choices[0];
+// }
 
-async function readMessages() {
-	const data = await fs.readFile("messages.json", "utf8");
-	return JSON.parse(data);
-}
+// async function readMessages() {
+// 	const data = await fs.readFile("messages.json", "utf8");
+// 	return JSON.parse(data);
+// }
 
-async function writeMessages(messages) {
-	await fs.writeFile(
-		"messages.json",
-		JSON.stringify(messages, null, 2),
-		"utf8"
-	);
-}
+// async function writeMessages(messages) {
+// 	await fs.writeFile(
+// 		"messages.json",
+// 		JSON.stringify(messages, null, 2),
+// 		"utf8"
+// 	);
+// }
 
 // Create new database. The page ID is set in the environment variables.
-app.post("/dat", async function (request, response) {
+app.post("/databases", async function (req, res) {
 	const pageId = process.env.NOTION_PAGE_ID;
-	const title = request.body.dbName;
+	//const title = request.body.dbName;
+	//necesitamos añadir un proceso para pedir el pageId ###
+	const name = req.body.name;
+	const response1 = await DBsd(name);
+	// app.post("/databases", async (req, res) => {
+	//   const name = req.body.name;
+	//   const response1 = await main(name);
+	//   res.json(response1);
+	// });
 
-  // const name = req.body.name;
-	// const response1 = await main(name);
-	// res.json(response1);
-
-	try {
+  try {
 		const newDb = await notion.databases.create({
 			parent: {
 				type: "page_id",
@@ -89,7 +93,7 @@ app.post("/dat", async function (request, response) {
 				{
 					type: "text",
 					text: {
-						content: title,
+						content: response1,
 					},
 				},
 			],
@@ -107,12 +111,52 @@ app.post("/dat", async function (request, response) {
 				},
 			},
 		});
-
-		response.json({ message: "success!", data: newDb });
+ 
+		res.json({ message: "success!", data: newDb });
 	} catch (error) {
-		response.json({ message: "error", error });
+		res.json({ message: "error", error });
 	}
+
 });
+
+
+async function dbGenerator(response1) {
+
+}
+
+async function DBsd(response1) {
+  let userQuestion = response1;
+  let messages = await readMessages(); // Leer mensajes del archivo JSON
+
+  //generate the response with the user question
+  messages.push({ role: "user", content: "dime unica y exclusivamente el titulo del proyecto NADA MAS" + userQuestion + ","
+  }); // Agregar la nueva pregunta del usuario
+  const completion = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: messages,
+  });
+
+  // messages.push({ role: "user", content: userQuestion }); // Agregar la nueva pregunta del usuario
+  // const completion = await openai.chat.completions.create({
+  // 	model: "gpt-3.5-turbo",
+  // 	messages: messages,
+  // });
+
+  messages.push({
+    role: "assistant",
+    content: completion.choices[0].message.content,
+  }); // Agregar la respuesta del asistente
+  //await writeMessages(messages); // Guardar los mensajes actualizados en el archivo JSON
+
+  console.log(completion.choices[0].message);
+  return completion.choices[0].message.content;
+}
+
+async function readMessages() {
+	const data = await fs.readFile("messages.json", "utf8");
+	return JSON.parse(data);
+}
+
 
 // Create new page. The database ID is provided in the web form.
 app.post("/pages", async function (request, response) {
