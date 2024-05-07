@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const OpenAI = require("openai");
-
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const port = 443;
@@ -75,6 +74,10 @@ async function writeMessages(messages) {
 app.post("/dat", async function (request, response) {
 	const pageId = process.env.NOTION_PAGE_ID;
 	const title = request.body.dbName;
+
+  // const name = req.body.name;
+	// const response1 = await main(name);
+	// res.json(response1);
 
 	try {
 		const newDb = await notion.databases.create({
