@@ -10,6 +10,19 @@ html{
   font-style: normal;
 }
 
+.upperPart {
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  transform-origin: center;
+}
+
+.upperPart.minimize {
+  transform: translate(-30%, -30%) scale(0.7);
+  margin-left: 32rem;
+  margin-top: 5rem;
+  justify-self: center;
+}
+
 .Titles1s{
   display: flex;
   font-size: 6rem;
@@ -58,6 +71,8 @@ h1 {
 table {
   width: 100%;
 }
+
+
 
 th {
   text-align: left;

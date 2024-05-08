@@ -1,15 +1,15 @@
 [
   {
     "role": "system",
-    "content": "eres un asistente que planifica y acomoda eventos o gestiona proyectos en la agenda el dia de hoy es 07-05-2024 haz todo para que dure 1 semana a no ser que se te indique lo contrario y da lo que se te solicite sobre el contexto para el siguiente proyecto: genera 2 o 1 tarea de pruebalo que no sepas imaginalo o generalo!"
+    "content": "eres un asistente que planifica y acomoda eventos o gestiona proyectos en la agenda el dia de hoy es 08-05-2024 haz todo para que dure 1 semana a no ser que se te indique lo contrario y da lo que se te solicite sobre el contexto para el siguiente proyecto: genera solo 1 tarea de pruebalo que no sepas imaginalo o generalo!"
   },
   {
     "role": "user",
-    "content": "Genera y dime unica y exclusivamente el titulo del proyecto resumido sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el titulo del proyecto que te propongo acontinuacion: genera 2 o 1 tarea de prueba"
+    "content": "Genera y dime unica y exclusivamente el titulo del proyecto resumido sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el titulo del proyecto que te propongo acontinuacion: genera solo 1 tarea de prueba"
   },
   {
     "role": "assistant",
-    "content": "Proyecto: Pruebas de Validación de Software"
+    "content": "\"Implementación de nueva herramienta de gestión de proyectos\""
   },
   {
     "role": "user",
@@ -17,7 +17,7 @@
   },
   {
     "role": "assistant",
-    "content": "2"
+    "content": "7"
   },
   {
     "role": "user",
@@ -25,15 +25,15 @@
   },
   {
     "role": "assistant",
-    "content": "Tarea 1: Diseñar casos de prueba"
+    "content": "Reunión de planificación"
   },
   {
     "role": "user",
-    "content": "Genera o imagina o investiga, pero hazlo! y dime los pasos a seguir para hacer la primer tarea del proyecto: genera 2 o 1 tarea de prueba![object Promise]"
+    "content": "Genera o imagina o investiga, pero hazlo! y dime los pasos a seguir para hacer la primer tarea del proyecto: genera solo 1 tarea de prueba![object Promise]"
   },
   {
     "role": "assistant",
-    "content": "1. Identificar los requisitos y funcionalidades a probar.\n2. Diseñar casos de prueba que cubran todas las situaciones posibles.\n3. Crear un plan de pruebas que detalle el alcance, los objetivos y la estrategia a seguir.\n4. Ejecutar los casos de prueba en un entorno controlado.\n5. Registrar los resultados de las pruebas y documentar cualquier incidente o anomalía encontrada."
+    "content": "Crear una presentación detallada sobre la nueva herramienta de gestión de proyectos, incluyendo sus funciones, ventajas y proceso de implementación."
   },
   {
     "role": "user",
@@ -41,7 +41,7 @@
   },
   {
     "role": "assistant",
-    "content": "2024-05-14"
+    "content": "2024-05-09"
   },
   {
     "role": "user",
@@ -49,15 +49,15 @@
   },
   {
     "role": "assistant",
-    "content": "Tarea 2: Ejecución de pruebas"
+    "content": "Investigación de proveedores"
   },
   {
     "role": "user",
-    "content": "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero 2 del proyecto: genera 2 o 1 tarea de prueba![object Promise]"
+    "content": "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero 2 del proyecto: genera solo 1 tarea de prueba![object Promise]"
   },
   {
     "role": "assistant",
-    "content": "1. Preparar el entorno de pruebas.\n2. Ejecutar los casos de prueba diseñados.\n3. Registrar y analizar los resultados de las pruebas.\n4. Corregir y documentar cualquier incidencia encontrada durante la ejecución de las pruebas.\n5. Validar que el software cumple con los requisitos y funcionalidades establecidos."
+    "content": "Evaluar la calidad y precios de los proveedores potenciales para la nueva herramienta de gestión de proyectos."
   },
   {
     "role": "user",
@@ -65,6 +65,126 @@
   },
   {
     "role": "assistant",
-    "content": "2024-05-21"
+    "content": "2024-05-10"
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime unica y exclusivamente el nombre de la tarea numero 3 sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la tarea para llevar a cabo ese proyecto y sin verbos como realizar o hacer![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Selección del proveedor adecuado"
+  },
+  {
+    "role": "user",
+    "content": "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero 3 del proyecto: genera solo 1 tarea de prueba![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Negociar términos y condiciones con el proveedor seleccionado para la nueva herramienta de gestión de proyectos."
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime la fecha de vencimiento de la tarea numero 3 del proyecto en formato AAAA-MM-DD![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "2024-05-12"
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime unica y exclusivamente el nombre de la tarea numero 4 sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la tarea para llevar a cabo ese proyecto y sin verbos como realizar o hacer![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Instalación y configuración inicial de la herramienta de gestión de proyectos"
+  },
+  {
+    "role": "user",
+    "content": "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero 4 del proyecto: genera solo 1 tarea de prueba![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Realizar una instalación piloto de la herramienta de gestión de proyectos en un entorno controlado para garantizar su funcionamiento adecuado."
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime la fecha de vencimiento de la tarea numero 4 del proyecto en formato AAAA-MM-DD![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "2024-05-14"
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime unica y exclusivamente el nombre de la tarea numero 5 sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la tarea para llevar a cabo ese proyecto y sin verbos como realizar o hacer![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Capacitación del equipo en el uso de la herramienta de gestión de proyectos"
+  },
+  {
+    "role": "user",
+    "content": "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero 5 del proyecto: genera solo 1 tarea de prueba![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Planificar sesiones de formación y entrenamiento para el equipo sobre el manejo efectivo de la herramienta de gestión de proyectos."
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime la fecha de vencimiento de la tarea numero 5 del proyecto en formato AAAA-MM-DD![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "2024-05-15"
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime unica y exclusivamente el nombre de la tarea numero 6 sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la tarea para llevar a cabo ese proyecto y sin verbos como realizar o hacer![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Implementación gradual en los equipos de trabajo"
+  },
+  {
+    "role": "user",
+    "content": "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero 6 del proyecto: genera solo 1 tarea de prueba![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Realizar pruebas piloto en diferentes equipos de trabajo para asegurar una transición exitosa a la nueva herramienta de gestión de proyectos."
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime la fecha de vencimiento de la tarea numero 6 del proyecto en formato AAAA-MM-DD![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "2024-05-17"
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime unica y exclusivamente el nombre de la tarea numero 7 sin otras cosas ni nada de contexto extra o preguntas, UNICAMENTE el nombre de la tarea para llevar a cabo ese proyecto y sin verbos como realizar o hacer![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Evaluación de la efectividad de la implementación"
+  },
+  {
+    "role": "user",
+    "content": "Genera o imagina para que me digas los pasos a seguir para hacer la tarea numero 7 del proyecto: genera solo 1 tarea de prueba![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "Realizar encuestas y entrevistas con los miembros del equipo para recopilar feedback sobre la nueva herramienta de gestión de proyectos y evaluar su impacto en la productividad."
+  },
+  {
+    "role": "user",
+    "content": "Genera y dime la fecha de vencimiento de la tarea numero 7 del proyecto en formato AAAA-MM-DD![object Promise]"
+  },
+  {
+    "role": "assistant",
+    "content": "2024-05-19"
   }
 ]
