@@ -71,7 +71,16 @@ h1 {
 table {
   width: 100%;
 }
-
+.menuhide{
+  background-color: #e3cdaa;  /* Color azul */
+  color: white;              /* Texto blanco */
+  border: none;              /* Sin bordes */
+  padding: 10px 20px;        /* Espaciado interno */
+  font-size: 16px;           /* Tamaño de fuente */
+  border-radius: 5px;        /* Bordes redondeados */
+  cursor: pointer;           /* Cursor en forma de mano */
+  transition: background-color 0.3s, transform 0.3s;  /* Transición suave de color y transformación */
+}
 
 
 th {

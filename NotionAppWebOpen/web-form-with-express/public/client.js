@@ -25,7 +25,9 @@ const commentResponseEl = document.getElementById("commentResponse");
  */
 
 //$("html").css("background-color", "black");
-
+$(".menuhide").click(function () {
+	$(".upperPart").slideToggle();
+});
 // Appends the API response to the UI
 const appendApiResponse = function (apiResponse, el) {
 	console.log(apiResponse);
@@ -57,11 +59,12 @@ const appendApiResponse = function (apiResponse, el) {
 		newAnchorTag.innerText = urlofNotionItem;
 		el.appendChild(newAnchorTag);
 		//volvemos todo a la normalidad
-		if (window.innerWidth > 1200) {
-			$("#dbSubmit").css("background-color", "#ffed84");
-			$("#dbSubmit").prop("disabled", false);
+    $("#dbSubmit").css("background-color", "#ffed84");
+    $("#dbSubmit").prop("disabled", false);
+		if (window.innerWidth > 1200 && $(".upperPart").hasClass("minimize")) {
 			$(".upperPart").toggleClass("minimize");
 			$("table").css("margin-top", "0rem");
+			$(".menuhide").show();
 		}
 	}
 };
@@ -113,16 +116,19 @@ dbForm.onsubmit = async function (event) {
 	const body = JSON.stringify({ dbName });
 	console.log("que carajo?");
 	const newAnchorTag1 = document.createElement("a");
+	//cambiamos el color del type submit
+	$("#dbSubmit").css("background-color", "red");
+	//hacemos inservible el boton
+	$("#dbSubmit").prop("disabled", true);
 	//como hago que pase esto solo si el width de la pagina es mayor a 800px?
-	if (window.innerWidth > 1200) {
-		//cambiamos el color del type submit
-		$("#dbSubmit").css("background-color", "red");
-		//hacemos inservible el boton
-		$("#dbSubmit").prop("disabled", true);
+	if (window.innerWidth > 1200 && !$(".upperPart").is(":hidden")) {
+		//escondemos el boton de esconder menu
+		$(".menuhide").hide();
 		//hacemos mas pequeño el menu de arriba
 		$(".upperPart").toggleClass("minimize");
 		//subimos un poco la tabla de abajo cambiando el margen-top -4rem
 		$("table").css("margin-top", "-10rem");
+
 	}
 
 	newAnchorTag1.innerText = "CARGANDO!!!!";
