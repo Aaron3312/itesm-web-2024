@@ -135,3 +135,30 @@ footer {
   padding-top: 1.5em;
   border-top: 1px solid lightgrey;
 }
+
+
+.loading-text {
+  font-size: 24px;                     /* Tamaño de la fuente */
+  font-family: 'Arial', sans-serif;    /* Tipo de fuente */
+  color: #a48249;                      /* Color del texto */
+  text-align: center;                  /* Alineación del texto */
+  padding: 20px;                       /* Espaciado interno */
+  background-color: #f0be6b;           /* Color de fondo */
+  border-radius: 10px;                 /* Bordes redondeados */
+  width: 200px;                        /* Ancho del elemento */
+  margin: 100px auto;                  /* Centrado con margen vertical */
+  box-shadow: 0 8px 16px rgba(81, 47, 3, 0.717); /* Sombra para resaltar */
+  animation: pulse 1.5s infinite;      /* Animación definida a continuación */
+}
+
+/* Animación que cambia la escala y la opacidad para dar un efecto pulsante */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);   /* Escala normal */
+    opacity: 1;            /* Opacidad total */
+  }
+  50% {
+    transform: scale(1.1); /* Aumenta la escala */
+    opacity: 0.7;          /* Reduce la opacidad */
+  }
+}

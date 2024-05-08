@@ -9,7 +9,7 @@
   },
   {
     "role": "assistant",
-    "content": "Prueba de Concepto AI Mejorado"
+    "content": "\"Pruebas de concepto para proyecto de IA\""
   },
   {
     "role": "user",
@@ -25,7 +25,7 @@
   },
   {
     "role": "assistant",
-    "content": "Implementar Modelo de Machine Learning"
+    "content": "Investigación de algoritmos de aprendizaje automático"
   },
   {
     "role": "user",
@@ -33,7 +33,7 @@
   },
   {
     "role": "assistant",
-    "content": "1. Recolectar y preparar los datos necesarios para el entrenamiento del modelo de Machine Learning.\n2. Seleccionar y aplicar un algoritmo de Machine Learning adecuado para el desarrollo de la prueba de concepto."
+    "content": "1. Investigar y estudiar los diferentes algoritmos de aprendizaje automático disponibles en la literatura académica y en la industria.\n2. Seleccionar los algoritmos más relevantes y adecuados para el proyecto en base a los objetivos y requerimientos establecidos."
   },
   {
     "role": "user",
@@ -49,7 +49,7 @@
   },
   {
     "role": "assistant",
-    "content": "Evaluación de Resultados"
+    "content": "Presentación de resultados"
   },
   {
     "role": "user",
@@ -57,7 +57,7 @@
   },
   {
     "role": "assistant",
-    "content": "1. Analizar los resultados obtenidos del modelo de Machine Learning.\n2. Interpretar y documentar las conclusiones de la prueba de concepto."
+    "content": "1. Analizar y procesar los datos recopilados utilizando los algoritmos de aprendizaje automático seleccionados.\n2. Crear visualizaciones y presentaciones efectivas que muestren los resultados obtenidos a partir de la aplicación de los algoritmos."
   },
   {
     "role": "user",
