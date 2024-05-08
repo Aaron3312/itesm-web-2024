@@ -5,6 +5,7 @@
  */
 
 // Forms
+
 const dbForm = document.getElementById("databaseForm") //important, this is the form that we gonna use to create the database
 
 
@@ -25,6 +26,9 @@ const commentResponseEl = document.getElementById("commentResponse")
 /**
  * Functions to handle appending new content to /views/index.html
  */
+
+//$("html").css("background-color", "black");
+
 
 // Appends the API response to the UI
 const appendApiResponse = function (apiResponse, el) {
@@ -56,6 +60,9 @@ const appendApiResponse = function (apiResponse, el) {
     newAnchorTag.setAttribute("href", urlofNotionItem )
     newAnchorTag.innerText = urlofNotionItem;
     el.appendChild(newAnchorTag)
+    $("#dbSubmit").css("background-color", "#ffed84");
+    $("#dbSubmit").prop("disabled", false);
+
 
   }
 
@@ -110,8 +117,11 @@ dbForm.onsubmit = async function (event) {
   const name = event.target.dbName.value
   const body = JSON.stringify({ dbName })
   console.log("que carajo?")
-  const newAnchorTag1 = document.createElement("a")
-  newAnchorTag1.setAttribute("href", "http://aaronproject1.notion.site/" )
+  const newAnchorTag1 = document.createElement("a");
+  //cambiamos el color del type submit
+  $("#dbSubmit").css("background-color", "red");
+  //hacemos inservible el boton
+  $("#dbSubmit").prop("disabled", true);
   newAnchorTag1.innerText = "CARGANDO!!!!";
   dbResponseEl.appendChild(newAnchorTag1)
 
@@ -134,7 +144,7 @@ dbForm.onsubmit = async function (event) {
 
 pageForm.onsubmit = async function (event) {
   event.preventDefault()
-
+  
   const dbID = event.target.newPageDB.value
   const pageName = event.target.newPageName.value
   const header = event.target.header.value

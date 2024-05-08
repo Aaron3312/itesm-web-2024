@@ -13,11 +13,12 @@
     <link rel="stylesheet" href="/style.css" />
 
     <!-- import the webpage's client-side javascript file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/client.js" defer></script>
   </head>
   <div class="loader" id="loader"></div>
   <body>
-    <div class = "upperPart">
+    <div class = "upperPart" id = "especialMenu">
       <div style="margin-left: 5.5rem; margin-top: -3rem;">
         <div class="Titles1s ">
           <img id="dedlogo" src="/buo.png" alt="Notion logo" />
@@ -55,7 +56,7 @@
               <label for="dbName">Ask to do here:</label>
               <input type="text" id="dbName" />
               <!-- <button class="btn btn-outline-light" id="resetButton" style="width: 10rem; margin-bottom: -4rem; background-color: rgb(249, 212, 101);" type="reset" >Reset Conversation</button> -->
-              <input type="submit" />
+              <input type="submit" id = "dbSubmit"/>
 
 
             </forms>

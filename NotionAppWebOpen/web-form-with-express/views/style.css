@@ -124,6 +124,10 @@ input {
   width: 100%;
 }
 
+#dbSubmit{
+  background-color: #ffed84;
+}
+
 form input[type="submit"] {
   background-color: #ffed84;
   border: 2px solid currentColor;
